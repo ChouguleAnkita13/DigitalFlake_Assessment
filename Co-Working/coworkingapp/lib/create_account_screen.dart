@@ -68,31 +68,31 @@ class _CreateAccountScreen extends State<CreateAccountScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding:
-            const EdgeInsets.only(top: 90, left: 20, bottom: 20, right: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              width: 223,
-              child: Text("Create an Account",
-                  style: GoogleFonts.poppins(
-                    textStyle: const TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 1),
-                      fontSize: 24,
-                      letterSpacing: -0.24,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )),
-            ),
-            const SizedBox(
-              height: 50,
-            ),
-            Form(
-              key: _formkey,
-              child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding:
+              const EdgeInsets.only(top: 90, left: 20, bottom: 20, right: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(
+                width: 223,
+                child: Text("Create an Account",
+                    style: GoogleFonts.poppins(
+                      textStyle: const TextStyle(
+                        color: Color.fromRGBO(0, 0, 0, 1),
+                        fontSize: 24,
+                        letterSpacing: -0.24,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Form(
+                key: _formkey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -200,69 +200,71 @@ class _CreateAccountScreen extends State<CreateAccountScreen> {
                   ],
                 ),
               ),
-            ),
-            const Spacer(),
-            Container(
-              width: double.infinity,
-              height: 56,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                  color: Color.fromRGBO(81, 103, 235, 1),
-                  borderRadius: BorderRadius.all(Radius.circular(10))),
-              child: GestureDetector(
-                onTap: () {
-                  if (_formkey.currentState!.validate()) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HomeScreen()));
-                  }
-                },
-                child: Text("Create an Account",
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontSize: 16,
-                        letterSpacing: -0.24,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    )),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * 0.26,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Existing user?",
-                    style: GoogleFonts.poppins(
-                      textStyle: const TextStyle(
-                        color: Color.fromRGBO(98, 98, 98, 1),
-                        fontSize: 14,
-                        letterSpacing: -0.24,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    )),
-                const SizedBox(
-                  width: 5,
-                ),
-                GestureDetector(
-                    onTap: () {
+              Container(
+                width: double.infinity,
+                height: 56,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                    color: Color.fromRGBO(81, 103, 235, 1),
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: GestureDetector(
+                  onTap: () {
+                    if (_formkey.currentState!.validate()) {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const LoginScreen()));
-                    },
-                    child: Text("Log In",
-                        style: GoogleFonts.poppins(
-                          textStyle: const TextStyle(
-                            color: Color.fromRGBO(42, 29, 139, 1),
-                            fontSize: 14,
-                            letterSpacing: -0.24,
-                            fontWeight: FontWeight.w400,
-                            decoration: TextDecoration.underline,
-                          ),
-                        ))),
-              ],
-            )
-          ],
+                          builder: (context) => const HomeScreen()));
+                    }
+                  },
+                  child: Text("Create an Account",
+                      style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                          color: Color.fromRGBO(255, 255, 255, 1),
+                          fontSize: 16,
+                          letterSpacing: -0.24,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Existing user?",
+                      style: GoogleFonts.poppins(
+                        textStyle: const TextStyle(
+                          color: Color.fromRGBO(98, 98, 98, 1),
+                          fontSize: 14,
+                          letterSpacing: -0.24,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                      },
+                      child: Text("Log In",
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                              color: Color.fromRGBO(42, 29, 139, 1),
+                              fontSize: 14,
+                              letterSpacing: -0.24,
+                              fontWeight: FontWeight.w400,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ))),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AvailableDesk extends StatefulWidget {
   final List? availableSlotDate;
   final int? selectedType;
-  const AvailableDesk({super.key, this.availableSlotDate,this.selectedType});
+  const AvailableDesk({super.key, this.availableSlotDate, this.selectedType});
 
   @override
   State<AvailableDesk> createState() => _AvailableDesk();
@@ -41,7 +41,6 @@ class _AvailableDesk extends State<AvailableDesk> {
   void _saveData() async {
     final url = Uri.parse(
         'https://demo0413095.mockable.io/digitalflake/api/confirm_booking');
-    // final response = 
     await http.post(
       url,
       body: json.encode(
@@ -52,7 +51,6 @@ class _AvailableDesk extends State<AvailableDesk> {
         },
       ),
     );
-    // print(response.body);
   }
 
   @override
@@ -114,7 +112,10 @@ class _AvailableDesk extends State<AvailableDesk> {
               children: [
                 Row(
                   children: [
-                    Text((widget.selectedType==1)?"Desk ID : 786549":"Room ID : 786549",
+                    Text(
+                        (widget.selectedType == 1)
+                            ? "Desk ID : 786549"
+                            : "Room ID : 786549",
                         style: GoogleFonts.poppins(
                           textStyle: const TextStyle(
                             color: Color.fromRGBO(0, 0, 0, 1),
@@ -124,7 +125,10 @@ class _AvailableDesk extends State<AvailableDesk> {
                           ),
                         )),
                     const Spacer(),
-                    Text((widget.selectedType==1)?"Desk $workSpaceName":"Room No.$workSpaceName",
+                    Text(
+                        (widget.selectedType == 1)
+                            ? "Desk $workSpaceName"
+                            : "Room No.$workSpaceName",
                         style: GoogleFonts.poppins(
                           textStyle: const TextStyle(
                             color: Color.fromRGBO(73, 73, 73, 1),
@@ -182,8 +186,7 @@ class _AvailableDesk extends State<AvailableDesk> {
                               const SizedBox(
                                 height: 10,
                               ),
-                              Text(
-                                  "You have successfully booked your Desk",
+                              Text("You have successfully booked your Desk",
                                   style: GoogleFonts.poppins(
                                     textStyle: const TextStyle(
                                       color: Color.fromRGBO(255, 255, 255, 1),
@@ -230,19 +233,21 @@ class _AvailableDesk extends State<AvailableDesk> {
             },
             icon: const Icon(Icons.arrow_back_outlined,
                 size: 24, color: Color(0xFF000000))),
-        title: Text((widget.selectedType==1)?"Available desks":"Available room",
-            style: GoogleFonts.poppins(
-              textStyle: const TextStyle(
-                color: Color.fromRGBO(0, 0, 0, 1),
-                fontSize: 20,
-                letterSpacing: -0.24,
-                fontWeight: FontWeight.w400,
-              ),
-            ),),
+        title: Text(
+          (widget.selectedType == 1) ? "Available desks" : "Available room",
+          style: GoogleFonts.poppins(
+            textStyle: const TextStyle(
+              color: Color.fromRGBO(0, 0, 0, 1),
+              fontSize: 20,
+              letterSpacing: -0.24,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
         backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left:40,bottom: 20),
+        padding: const EdgeInsets.only(left: 30, bottom: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -265,7 +270,7 @@ class _AvailableDesk extends State<AvailableDesk> {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             SizedBox(
                 width: 312,
@@ -279,7 +284,8 @@ class _AvailableDesk extends State<AvailableDesk> {
                       onTap: () {
                         if (selectedDesk == -1) {
                           setState(() {
-                            selectedDesk = availabledeskList[index]["workspace_id"];
+                            selectedDesk =
+                                availabledeskList[index]["workspace_id"];
                             workSpaceName =
                                 availabledeskList[index]["workspace_name"];
                           });

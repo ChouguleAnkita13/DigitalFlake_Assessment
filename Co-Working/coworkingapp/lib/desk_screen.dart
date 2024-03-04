@@ -3,8 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:coworkingapp/availabledesk.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-
-import 'package:easy_date_timeline/easy_date_timeline.dart';
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'dart:convert';
 
 class DeskScreen extends StatefulWidget {
@@ -86,9 +85,10 @@ class _DeskScreen extends State<DeskScreen> {
       ),
       body: Column(
         children: [
-          EasyDateTimeLine(
-            initialDate: DateTime.now(),
-            activeColor: const Color.fromRGBO(77, 96, 209, 1),
+          DatePicker(
+            DateTime.now(),
+            initialSelectedDate: DateTime.now(),
+            selectionColor: const Color.fromRGBO(77, 96, 209, 1),
             onDateChange: (date) {
               String formatDate = DateFormat('E d MMM').format(date);
               setState(() {
